@@ -1,390 +1,199 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>בחירת מאכלים - מבשלת החברה</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <style>
-        body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        .main-container {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            backdrop-filter: blur(10px);
-            margin: 20px auto;
-            max-width: 900px;
-        }
-        
-        .header {
-            background: linear-gradient(45deg, #ff6b6b, #ffa500);
-            color: white;
-            padding: 30px;
-            border-radius: 20px 20px 0 0;
-            text-align: center;
-        }
-        
-        .header h1 {
-            margin: 0;
-            font-size: 2.2rem;
-            font-weight: bold;
-        }
-        
-        .header p {
-            margin: 10px 0 0 0;
-            opacity: 0.9;
-            font-size: 1.1rem;
-        }
-        
-        .category-section {
-            margin-bottom: 30px;
-            background: #f8f9fa;
-            border-radius: 15px;
-            padding: 20px;
-            border: 2px solid #e9ecef;
-        }
-        
-        .category-title {
-            color: #495057;
-            font-size: 1.4rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .food-item {
-            background: white;
-            border-radius: 10px;
-            margin-bottom: 10px;
-            padding: 15px;
-            border: 2px solid #e9ecef;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .food-item:hover {
-            border-color: #ff6b6b;
-            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.2);
-            transform: translateY(-2px);
-        }
-        
-        .food-item.selected {
-            border-color: #28a745;
-            background: linear-gradient(45deg, #28a745, #20c997);
-            color: white;
-        }
-        
-        .form-check-input {
-            transform: scale(1.3);
-            margin-left: 10px;
-        }
-        
-        .form-check-label {
-            font-size: 1.1rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .share-btn {
-            background: linear-gradient(45deg, #25d366, #128c7e);
-            border: none;
-            color: white;
-            padding: 15px 30px;
-            font-size: 1.2rem;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
-            width: 100%;
-            margin-top: 20px;
-        }
-        
-        .share-btn:hover {
-            background: linear-gradient(45deg, #128c7e, #25d366);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
-        }
-        
-        .share-btn:disabled {
-            background: #6c757d;
-            box-shadow: none;
-            transform: none;
-        }
-        
-        .selected-count {
-            background: #ff6b6b;
-            color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
-        
-        .name-input {
-            background: white;
-            border: 2px solid #e9ecef;
-            border-radius: 10px;
-            padding: 15px;
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-        }
-        
-        .name-input:focus {
-            border-color: #ff6b6b;
-            box-shadow: 0 0 0 0.2rem rgba(255, 107, 107, 0.25);
-        }
-        
-        @media (max-width: 768px) {
-            .main-container {
-                margin: 10px;
-                border-radius: 15px;
-            }
-            
-            .header {
-                padding: 20px;
-                border-radius: 15px 15px 0 0;
-            }
-            
-            .header h1 {
-                font-size: 1.8rem;
-            }
-            
-            .food-item {
-                padding: 12px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>בחירת מאכלים - מבשלת החברה</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);min-height:100vh;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif}
+    .main-container{background:rgba(255,255,255,.95);border-radius:20px;box-shadow:0 20px 40px rgba(0,0,0,.1);backdrop-filter:blur(10px);margin:20px auto;max-width:900px}
+    .header{background:linear-gradient(45deg,#ff6b6b,#ffa500);color:#fff;padding:30px;border-radius:20px 20px 0 0;text-align:center}
+    .header h1{margin:0;font-size:2.2rem;font-weight:700}
+    .header p{margin:10px 0 0;opacity:.9;font-size:1.1rem}
+    .category-section{margin-bottom:30px;background:#f8f9fa;border-radius:15px;padding:20px;border:2px solid #e9ecef}
+    .category-title{color:#495057;font-size:1.4rem;font-weight:700;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+    .food-item{background:#fff;border-radius:10px;margin-bottom:10px;padding:15px;border:2px solid #e9ecef;transition:all .3s ease;cursor:pointer}
+    .food-item:hover{border-color:#ff6b6b;box-shadow:0 5px 15px rgba(255,107,107,.2);transform:translateY(-2px)}
+    .food-item.selected{border-color:#28a745;background:linear-gradient(45deg,#28a745,#20c997);color:#fff}
+    .form-check-input{transform:scale(1.3);margin-left:10px}
+    .form-check-label{font-size:1.1rem;cursor:pointer;display:flex;align-items:center;gap:10px}
+    .share-btn{background:linear-gradient(45deg,#25d366,#128c7e);border:none;color:#fff;padding:15px 30px;font-size:1.2rem;border-radius:50px;transition:all .3s ease;box-shadow:0 5px 15px rgba(37,211,102,.3);width:100%;margin-top:20px}
+    .share-btn:hover{background:linear-gradient(45deg,#128c7e,#25d366);transform:translateY(-2px);box-shadow:0 8px 25px rgba(37,211,102,.4)}
+    .share-btn:disabled{background:#6c757d;box-shadow:none;transform:none}
+    .selected-count{background:#ff6b6b;color:#fff;padding:8px 15px;border-radius:20px;font-weight:700;display:inline-block;margin-bottom:20px}
+    .name-input,.notes-textarea{background:#fff;border:2px solid #e9ecef;border-radius:10px;padding:15px;margin-bottom:20px;font-size:1.1rem;transition:all .3s ease}
+    .name-input:focus,.notes-textarea:focus{border-color:#ff6b6b;box-shadow:0 0 0 .2rem rgba(255,107,107,.25)}
+    @media (max-width:768px){
+      .main-container{margin:10px;border-radius:15px}
+      .header{padding:20px;border-radius:15px 15px 0 0}
+      .header h1{font-size:1.8rem}
+      .food-item{padding:12px}
+    }
+  </style>
 </head>
 <body>
-    <div class="container-fluid">
-        <div class="main-container">
-            <div class="header">
-                <h1><i class="fas fa-utensils"></i> בחירת מאכלים</h1>
-                <p>בחר את המאכלים שאתה הכי אוהב ושתף עם המבשלת</p>
-            </div>
-            
-            <div class="p-4">
-                <div class="mb-4">
-                    <input type="text" id="userName" class="form-control name-input" placeholder="הכנס את שמך" required>
-                </div>
-                
-                <div class="selected-count">
-                    נבחרו: <span id="selectedCount">0</span> מאכלים
-                </div>
-                
-                <!-- ארוחות עיקריות -->
-                <div class="category-section">
-                    <div class="category-title">
-                        <i class="fas fa-drumstick-bite"></i>
-                        ארוחות עיקריות
-                    </div>
-                    <div id="mainDishes">
-                        <!-- ייווצרו באופן דינמי -->
-                    </div>
-                </div>
-                
-                <!-- סלטים -->
-                <div class="category-section">
-                    <div class="category-title">
-                        <i class="fas fa-leaf"></i>
-                        סלטים
-                    </div>
-                    <div id="salads">
-                        <!-- ייווצרו באופן דינמי -->
-                    </div>
-                </div>
-                
-                <button class="share-btn" id="shareBtn" disabled>
-                    <i class="fab fa-whatsapp"></i> שתף בווצאפ
-                </button>
-            </div>
+  <div class="container-fluid">
+    <div class="main-container">
+      <div class="header">
+        <h1><i class="fas fa-utensils"></i> בחירת מאכלים</h1>
+        <p>בחר את המאכלים שאתה הכי אוהב ושתף עם המבשלת</p>
+      </div>
+
+      <div class="p-4">
+        <div class="mb-3">
+          <input type="text" id="userName" class="form-control name-input" placeholder="הכנס את שמך" required>
         </div>
+
+        <div class="selected-count">
+          נבחרו: <span id="selectedCount">0</span> מאכלים
+        </div>
+
+        <!-- ארוחות עיקריות -->
+        <div class="category-section">
+          <div class="category-title">
+            <i class="fas fa-drumstick-bite"></i>
+            ארוחות עיקריות
+          </div>
+          <div id="mainDishes"></div>
+        </div>
+
+        <!-- הערות חופשיות -->
+        <div class="category-section">
+          <div class="category-title">
+            <i class="fas fa-pen-to-square"></i>
+            הערות חופשי (אלרגיות, העדפות, תוספות וכו')
+          </div>
+          <textarea id="notes" class="form-control notes-textarea" rows="4" placeholder="כתבו כאן כל דבר שחשוב לדעת..."></textarea>
+        </div>
+
+        <button class="share-btn" id="shareBtn" disabled>
+          <i class="fab fa-whatsapp"></i> שתף בווצאפ
+        </button>
+      </div>
     </div>
+  </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // רשימת הארוחות העיקריות
-        const mainDishes = [
-            "פסטה בולונז בשר בקר",
-            "פסטה פרגית ועשבי תיבול",
-            "מוקפץ ירקות ועוף על אורז",
-            "מוקפץ ירקות ועוף עם אטריות",
-            "שניצל ופירה",
-            "שניצל ופסטה ברוטב עגבניות",
-            "חזה עוף ופירה",
-            "קבב עוף",
-            "קבב בשר בקר",
-            "סופריטו עוף ותפו\"א",
-            "בורקס בשר",
-            "לחם בית במילוי בשר",
-            "סלמון ופירה",
-            "קוסקוס עוף וירקות",
-            "קוסקוס דגים ותפו\"א",
-            "מרק שעועית ובשר",
-            "סטייק פרגית",
-            "גליליות חציל במילוי בשר טחון ואורז",
-            "שקשוקה",
-            "סביח",
-            "פאי רועים",
-            "סושי",
-            "נתח בשר בבישול ארוך ואורז",
-            "כרוב ממולא באורז ובשר טחון",
-            "עוף צלוי על מלח גס ופירה/פסטה/ירקות בגריל",
-            "סלט אסייאתי ושיפודי סלמון",
-            "סלט אסייאתי וחזה עוף",
-            "בורקס בשר במילוי פרגיות ועשבי תיבול",
-            "שווארמה הודו",
-            "אגרול ירקות ועוף",
-            "אגרול ירקות ודג",
-            "עוף בלימון ופירה/אורז",
-            "סלט טונה",
-            "סלט עוף",
-            "סלט יווני",
-            "סלט קפרזה (גבינת מוצרלה)",
-            "מסבחה (ממרח חומוס חם, ביצה קשה, חמוצים, חציל מטוגן ופיתות)",
-            "תבשיל בשר ופטריות",
-            "תבשיל בשר חצילים ועגבניות על אורז",
-            "המבורגר עוף",
-            "המבורגר אסאדו",
-            "סלופי ג'ו",
-            "פריקסה",
-            "פלאפל",
-            "טורטייה מקסיקנית עוף",
-            "טורטייה מקסיקנית בקר",
-            "חזה עוף בטימין וסילאן",
-            "ריזוטו פטריות ופילה דג",
-            "לביבות קישואים וגבינות, סלט רענן וציזיקי",
-            "קיש - גבינות ובצל/פטריות, תרד וריקוטה"
-        ];
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // רשימת הארוחות (כפי שביקשת, ללא כפילויות)
+    const meals = [
+      "פסטה בולונז",
+      "קציצות עוף",
+      "מוקפץ ירקות ועוף על אורז",
+      "מוקפץ ירקות ועוף עם אטריות",
+      "שניצל",
+      "סלופי ג'ו",
+      "חזה עוף",
+      "קבב",
+      "פרגית",
+      "סופריטו עוף ותפו\"א",
+      "בורקס בשר",
+      "שקשוקה",
+      "סלמון",
+      "קוסקוס",
+      "סביח",
+      "סושי",
+      "סטייק פרגית",
+      "פריקסה",
+      "שווארמה הודו",
+      "נתח בשר בבישול ארוך ואורז",
+      "כרוב ממולא",
+      "עוף צלוי",
+      "סלט אסייאתי סלמון",
+      "סלט אסייאתי חזה עוף"
+    ];
 
-        // רשימת הסלטים
-        const salads = [
-            "כרוב סגול במיונז",
-            "כרוב לבן במיונז",
-            "כרוב לבן בלימון",
-            "סלט ירקות קצוץ",
-            "קולסלואו (כרוב לבן וגזר במיונז)",
-            "סלט מיקס חסה ועלי בייבי בויניגרט דבש וחרדל",
-            "סלט פלפלים קלויים בשום ושמן זית",
-            "סלט סלק, בלסמי ורכז רימונים (מתקתק)",
-            "סלט סלק מבושל מזרחי בכמון",
-            "סלט מיקס עשבי תבלין וצנוברים",
-            "סלט צנונית ובצל סגול בסומק ולימון",
-            "סלט עגבניות מבושל (מטבוחה)",
-            "חציל בטחינה",
-            "חציל במיונז",
-            "חמוצים",
-            "סלט חצילים באריסה",
-            "סלט קינואה (סלרי, חמוציות פטרוזיליה ועוד)",
-            "סלט תירס (שמיר, גמבה, פטריות, מיונז)",
-            "סלט גזר מבושל בכמון",
-            "סלט חסה בשמן זית ולימון"
-        ];
+    let selectedItems = [];
 
-        let selectedItems = [];
+    function createFoodItems(items, containerId) {
+      const container = document.getElementById(containerId);
+      items.forEach((item, index) => {
+        const itemDiv = document.createElement('div');
+        itemDiv.className = 'food-item';
+        itemDiv.innerHTML = `
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="${containerId}_${index}" data-item="${item}">
+            <label class="form-check-label" for="${containerId}_${index}">
+              ${item}
+            </label>
+          </div>
+        `;
+        container.appendChild(itemDiv);
 
-        // יצירת אלמנטי הבחירה
-        function createFoodItems(items, containerId) {
-            const container = document.getElementById(containerId);
-            items.forEach((item, index) => {
-                const itemDiv = document.createElement('div');
-                itemDiv.className = 'food-item';
-                itemDiv.innerHTML = `
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="${containerId}_${index}" data-item="${item}">
-                        <label class="form-check-label" for="${containerId}_${index}">
-                            ${item}
-                        </label>
-                    </div>
-                `;
-                container.appendChild(itemDiv);
-
-                // הוספת מאזין לקליק על כל הפריט
-                itemDiv.addEventListener('click', function(e) {
-                    if (e.target.type !== 'checkbox') {
-                        const checkbox = itemDiv.querySelector('input[type="checkbox"]');
-                        checkbox.checked = !checkbox.checked;
-                        checkbox.dispatchEvent(new Event('change'));
-                    }
-                });
-            });
-        }
-
-        // עדכון מונה הבחירות
-        function updateSelectedCount() {
-            document.getElementById('selectedCount').textContent = selectedItems.length;
-            document.getElementById('shareBtn').disabled = selectedItems.length === 0 || !document.getElementById('userName').value.trim();
-        }
-
-        // הוספת מאזינים לכל הצ'קבוקסים
-        function addEventListeners() {
-            document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-                checkbox.addEventListener('change', function() {
-                    const item = this.dataset.item;
-                    const foodItem = this.closest('.food-item');
-                    
-                    if (this.checked) {
-                        selectedItems.push(item);
-                        foodItem.classList.add('selected');
-                    } else {
-                        selectedItems = selectedItems.filter(i => i !== item);
-                        foodItem.classList.remove('selected');
-                    }
-                    updateSelectedCount();
-                });
-            });
-        }
-
-        // שיתוף בווצאפ
-        function shareToWhatsApp() {
-            const userName = document.getElementById('userName').value.trim();
-            if (!userName) {
-                alert('אנא הכנס את שמך');
-                return;
-            }
-            
-            if (selectedItems.length === 0) {
-                alert('אנא בחר לפחות מאכל אחד');
-                return;
-            }
-
-            let message = `שלום! 🍽️\n\nאני ${userName} ואלה המאכלים שאני הכי אוהב:\n\n`;
-            
-            selectedItems.forEach((item, index) => {
-                message += `${index + 1}. ${item}\n`;
-            });
-            
-            message += `\nסך הכל בחרתי ${selectedItems.length} מאכלים.\n\nתודה! 😊`;
-
-            const encodedMessage = encodeURIComponent(message);
-            const whatsappUrl = `https://wa.me/?text=${encodedMessage}`;
-            
-            window.open(whatsappUrl, '_blank');
-        }
-
-        // אתחול הדף
-        document.addEventListener('DOMContentLoaded', function() {
-            createFoodItems(mainDishes, 'mainDishes');
-            createFoodItems(salads, 'salads');
-            addEventListeners();
-            
-            // מאזין לשינוי בשם
-            document.getElementById('userName').addEventListener('input', updateSelectedCount);
-            
-            // מאזין ללחיצה על כפתור השיתוף
-            document.getElementById('shareBtn').addEventListener('click', shareToWhatsApp);
+        // Toggle בחירה בלחיצה על כל האזור
+        itemDiv.addEventListener('click', function(e) {
+          if (e.target.type !== 'checkbox') {
+            const checkbox = itemDiv.querySelector('input[type="checkbox"]');
+            checkbox.checked = !checkbox.checked;
+            checkbox.dispatchEvent(new Event('change'));
+          }
         });
-    </script>
+      });
+    }
+
+    function updateSelectedCount() {
+      document.getElementById('selectedCount').textContent = selectedItems.length;
+      const hasName = !!document.getElementById('userName').value.trim();
+      document.getElementById('shareBtn').disabled = selectedItems.length === 0 || !hasName;
+    }
+
+    function addEventListeners() {
+      document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+          const item = this.dataset.item;
+          const foodItem = this.closest('.food-item');
+
+          if (this.checked) {
+            selectedItems.push(item);
+            foodItem.classList.add('selected');
+          } else {
+            selectedItems = selectedItems.filter(i => i !== item);
+            foodItem.classList.remove('selected');
+          }
+          updateSelectedCount();
+        });
+      });
+    }
+
+    function shareToWhatsApp() {
+      const userName = document.getElementById('userName').value.trim();
+      const notes = document.getElementById('notes').value.trim();
+
+      if (!userName) {
+        alert('אנא הכנס את שמך');
+        return;
+      }
+      if (selectedItems.length === 0) {
+        alert('אנא בחר לפחות מאכל אחד');
+        return;
+      }
+
+      let message = `שלום! 🍽️\n\nאני ${userName} ואלה המאכלים שאני הכי אוהב:\n\n`;
+      selectedItems.forEach((item, index) => {
+        message += `${index + 1}. ${item}\n`;
+      });
+      message += `\nסך הכל בחרתי ${selectedItems.length} מאכלים.`;
+
+      if (notes) {
+        message += `\n\nהערות:\n${notes}`;
+      }
+
+      message += `\n\nתודה! 😊`;
+
+      const encodedMessage = encodeURIComponent(message);
+      const whatsappUrl = `https://wa.me/?text=${encodedMessage}`;
+      window.open(whatsappUrl, '_blank');
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      createFoodItems(meals, 'mainDishes');
+      addEventListeners();
+
+      document.getElementById('userName').addEventListener('input', updateSelectedCount);
+      document.getElementById('shareBtn').addEventListener('click', shareToWhatsApp);
+    });
+  </script>
 </body>
 </html>
